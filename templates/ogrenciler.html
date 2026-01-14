@@ -22,11 +22,12 @@
 
     <main class="main">
         <div class="topbar">
-            Hoş geldin
+            <a href="/ogrenciler/add">Öğrenci Ekle</a>
         </div>
 {% for cls in classes %}
             <div class="card">
             <h2>{{ cls.name }}</h2>
+            
 
             {% if cls.students %}
                 <ul>
@@ -35,6 +36,26 @@
                         {{ student[1] }} 
                         (No: {{ student[2] }}) 
                         - Puan: {{ student[4] }}
+                        <a href="/ogrenciler/points/{{ student[0] }}" style="color:white;
+                        margin-left:10px;
+                        margin-top: 7,5px;
+                        text-decoration: none;
+                        background-color: #86eeae;
+                        border-radius: 10px;
+                        display: inline-block;
+                        width: 100px;
+                        padding: 5px 10px;
+                        text-align: center;">Puan EKle</a>
+                        <a href="/ogrenciler/delete/{{ student[0] }}" style="color:white;
+                        margin-left:10px;
+                        margin-top: 7,5px;
+                        text-decoration: none;
+                        background-color: red;
+                        border-radius: 15%;
+                        display: inline-block;
+                        width: 40px;
+                        padding: 5px 10px;
+                        text-align: center;">Sil</a>
                     </li>
                 {% endfor %}
                 </ul>

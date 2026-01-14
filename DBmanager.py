@@ -90,9 +90,24 @@ class DBManager:
 
     # ---------- STUDENTS ----------
     def add_student(self, name, school_no, class_id):
+        #Aynı numaraya ait bir öğrenci olup olmadığını kontrol et
         self.cursor.execute(
-            "INSERT INTO students VALUES (NULL, ?, ?, ?, 0)",
-            (name, school_no, class_id)
+            "SELECT * FROM students WHERE school_no=?",
+            (school_no,)
+        )
+        if self.cursor.fetchone():
+            raise ValueError("Bu numaraya ait bir öğrenci zaten var.")
+        else:
+            self.cursor.execute(
+                "INSERT INTO students VALUES (NULL, ?, ?, ?, 0)",
+                (name, school_no, class_id)
+            )
+            self.conn.commit()
+
+    def delete_student(self, student_id):
+        self.cursor.execute(
+            "DELETE FROM students WHERE id=?",
+            (student_id,)
         )
         self.conn.commit()
 

@@ -84,6 +84,10 @@ html, body {
     margin-bottom:20px;
 }
 
+li {
+    margin-bottom:7px;
+}
+
 li a {
     text-decoration:none;
     color:inherit;
@@ -93,4 +97,35 @@ li a {
 .sidebar li.active{
     background:#1f2329;
     color:#fff;
+}
+
+.topbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #4CAF50;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
