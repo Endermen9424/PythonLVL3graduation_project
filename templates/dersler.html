@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+{% block content %}
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>ElaAdmin</h2>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/ogrenciler">Öğrenciler</a></li>
+            <li class="active"><a href="/dersler">Dersler</a></li>
+            <li><a href="/ayarlar">Ayarlar</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <div class="topbar">
+            Hoş geldin
+        </div>
+
+        {% for l in lessons %}
+            <div class="card">
+            <h3>{{ l.lesson }} - {{ l.topic }}</h3>
+            <p>{{ l.desc }}</p>
+            <iframe src="https://www.youtube.com/embed/{{ l.youtube.split('v=')[1] }}" width="600" height="400" allowfullscreen></iframe>
+            </div>
+        {% endfor %}
+        
+        
+
+    </main>
+
+</div>
+{% endblock %}
+</body>
+</html>
