@@ -9,32 +9,14 @@ class Testmanager:
             os.makedirs(folder_path)
         
     def get_tests(self):
-        self.tests = {}
+        self.tests = []
 
         for filename in os.listdir(self.folder_path):
             if filename.endswith(".json"):
-                file_path = os.path.join(self.folder_path, filename)
-
-                with open(file_path, "r", encoding="utf-8") as file:
-                    try:
-                        data = json.load(file)
-
-                        # JSON içinden alınan değerler (sen ayarlarsın)
-                        exam_name = data.get("exam_name")
-                        exam_description = data.get("exam_description")
-                        lesson_name = data.get("lesson_name")
-
-                        # key: dosya adı, value: liste
-                        self.tests[filename] = [
-                            exam_name,
-                            exam_description,
-                            lesson_name
-                        ]
-
-                    except json.JSONDecodeError:
-                        print(f"JSON okunamadı: {file_path}")
+                self.tests.append(filename)
 
         return self.tests
+
     
     def create_test(self, exam_name, exam_description, lesson_name, exam_data:dict):
         
@@ -73,3 +55,16 @@ class Testmanager:
             print(f"{filename} başarıyla silindi.")
         except FileNotFoundError:
             print(f"{filename} bulunamadı.")
+
+    def get_test_data(self, filename):
+        file_path = os.path.join(self.folder_path, filename)
+        try:
+            with open(file_path, "r", encoding="utf-8") as file:
+                data = json.load(file)
+                return data
+        except FileNotFoundError:
+            print(f"{filename} bulunamadı.")
+            return None
+        except json.JSONDecodeError:
+            print(f"JSON okunamadı: {file_path}")
+            return None
