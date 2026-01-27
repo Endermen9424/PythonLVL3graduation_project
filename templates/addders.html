@@ -14,25 +14,28 @@
         <h2>ElaAdmin</h2>
         <ul>
             <li><a href="/">Anasayfa</a></li>
-            <li class="active"><a href="/ogrenciler">Öğrenciler</a></li>
-            <li><a href="/dersler">Dersler</a></li>
+            <li>Öğrenciler</a></li>
+            <li class="active"><a href="/ogrenciler"><a href="/dersler">Dersler</a></li>
             <li><a href="/sinavlar">Sınavlar</a></li>
         </ul>
     </aside>
 
     
     <main class="main">
-        {% if error %}
-        <div class="error-message">{{ error }}</div>
-        {% endif %}
 
             <div class="card">
-            <form action="/ogrenciler/add" method="post">
-                <label for="name">Ad:</label>
-                <input type="text" id="name" name="name" required>
+            <form action="/dersler/add" method="post">
+                <label for="lesson_name">Ders Adı:</label>
+                <input type="text" id="lesson_name" name="lesson_name" required>
 
-                <label for="number">Numara:</label>
-                <input type="text" id="number" name="number" required>
+                <label for="topic_name">Konu Adı:</label>
+                <input type="text" id="topic_name" name="topic_name" required>
+
+                <label for="description">Açıklama:</label>
+                <textarea id="description" name="description"></textarea>
+
+                <label for="youtube_url">YouTube URL:</label>
+                <input type="text" id="youtube_url" name="youtube_url">
 
                 <label for="class_id">Sınıf:</label>
                 <select id="class_id" name="class_id">
@@ -41,7 +44,7 @@
                     {% endfor %}
                 </select>
 
-                <button type="submit">Öğrenci Ekle</button>
+                <button type="submit">Ders Ekle</button>
             </form>
 
             </div>

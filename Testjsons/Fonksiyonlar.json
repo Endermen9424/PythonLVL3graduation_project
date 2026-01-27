@@ -1,0 +1,17 @@
+{
+    "exam_name": "Fonksiyonlar",
+    "exam_description": "Fonksiyonları pekiştir.",
+    "lesson_name": "Matematik",
+    "exam_data": [
+        {
+            "question": "f(x)=x",
+            "options": [
+                "Sabit Fonksiyon",
+                "Parçalı Fonksiyon",
+                "Doğrusal Fonksiyon",
+                "Boş şık"
+            ],
+            "correct": 2
+        }
+    ]
+}

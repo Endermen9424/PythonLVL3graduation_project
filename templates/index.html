@@ -2,8 +2,134 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Panel</title>
+    <title>ElaAdmin - Eğitim Yönetim Sistemi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card h3 {
+            color: #667eea;
+            font-size: 32px;
+            margin: 10px 0;
+        }
+
+        .stat-card p {
+            color: #666;
+            margin: 0;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .quick-link {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link:hover {
+            background: #667eea;
+            color: white;
+            border-left-color: #764ba2;
+        }
+
+        .quick-link a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+            display: block;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .welcome-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .welcome-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+    </style>
 
 </head>
 <body>
@@ -13,21 +139,74 @@
     <aside class="sidebar">
         <h2>ElaAdmin</h2>
         <ul>
-            <li class="active"><a href="/">Dashboard</a></li>
+            <li class="active"><a href="/">Anasayfa</a></li>
             <li><a href="/ogrenciler">Öğrenciler</a></li>
             <li><a href="/dersler">Dersler</a></li>
-            <li><a href="/ayarlar">Ayarlar</a></li>
+            <li><a href="/sinavlar">Sınavlar</a></li>
         </ul>
     </aside>
 
     <main class="main">
-        <div class="topbar">
-            Hoş geldin
+        <div class="hero">
+            <h1>🎓 ElaAdmin</h1>
+            <p>Modern Eğitim Yönetim Sistemi</p>
+            <p style="font-size: 16px;">Öğrencilerini, derslerini ve sınavlarını kolayca yönet</p>
         </div>
 
-        <div class="card">
-            <h3>Örnek Ekran</h3>
-            <p>Online school panel içeriği</p>
+        <div class="welcome-section">
+            <h2>Hoş Geldiniz! 👋</h2>
+            <p>
+                ElaAdmin, eğitim kurumları için tasarlanmış modern ve kullanıcı dostu bir yönetim sistemidir. 
+                Öğrenci kayıtlarını yönetin, ders içeriklerini düzenleyin ve sınavlar oluşturun. 
+                Tüm işlemlerinizi tek bir platform üzerinden gerçekleştirin.
+            </p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>📚</h3>
+                <h3>Dersler</h3>
+                <p>Ders içeriklerini yönetin</p>
+            </div>
+            <div class="stat-card">
+                <h3>👥</h3>
+                <h3>Öğrenciler</h3>
+                <p>Öğrenci kayıtlarını takip edin</p>
+            </div>
+            <div class="stat-card">
+                <h3>✏️</h3>
+                <h3>Sınavlar</h3>
+                <p>Sınav ve testler oluşturun</p>
+            </div>
+        </div>
+
+        <h3 style="margin: 40px 0 20px 0; color: #333;">Hızlı Erişim</h3>
+        <div class="quick-links">
+            <div class="quick-link">
+                <a href="/ogrenciler">👥 Öğrencileri Yönet</a>
+            </div>
+            <div class="quick-link">
+                <a href="/dersler">📚 Dersleri Yönet</a>
+            </div>
+            <div class="quick-link">
+                <a href="/sinavlar">✏️ Sınavları Yönet</a>
+            </div>
+        </div>
+
+        <h3 style="margin: 40px 0 20px 0; color: #333;">Sistemin Özellikleri</h3>
+        <div class="features">
+            <div class="feature-card">
+                <h4>📝 Kolay Yönetim</h4>
+                <p>Öğrenci, ders ve sınav yönetimini basit ve hızlı bir şekilde gerçekleştirin.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎯 Verimli İşlem</h4>
+                <p>Tüm verileriniz güvenli bir şekilde saklanır ve istediğiniz zaman erişilebilir.</p>
+            </div>
+            <div class="feature-card">
+                <h4>💻 Modern Arayüz</h4>
+                <p>Kullanıcı dostu tasarımla kolayca navigasyon yapın ve işlem gerçekleştirin.</p>
+            </div>
         </div>
     </main>
 

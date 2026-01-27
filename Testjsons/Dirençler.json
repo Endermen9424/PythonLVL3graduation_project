@@ -1,0 +1,17 @@
+{
+    "exam_name": "Dirençler",
+    "exam_description": "Dirençleri pekiştir.",
+    "lesson_name": "EDAN",
+    "exam_data": [
+        {
+            "question": "Direnç renk kodlarında hangisi yoktur?",
+            "options": [
+                "Sarı",
+                "Turuncu",
+                "Gri",
+                "Pembe"
+            ],
+            "correct": 3
+        }
+    ]
+}

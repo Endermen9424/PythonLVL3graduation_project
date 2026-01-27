@@ -13,16 +13,16 @@
     <aside class="sidebar">
         <h2>ElaAdmin</h2>
         <ul>
-            <li><a href="/">Dashboard</a></li>
+            <li><a href="/">Anasayfa</a></li>
             <li><a href="/ogrenciler">Öğrenciler</a></li>
             <li class="active"><a href="/dersler">Dersler</a></li>
-            <li><a href="/ayarlar">Ayarlar</a></li>
+            <li><a href="/sinavlar">Sınavlar</a></li>
         </ul>
     </aside>
 
     <main class="main">
         <div class="topbar">
-            Hoş geldin
+            <a href="/dersler/add">Ders Ekle</a>
         </div>
 
         {% for l in lessons %}
@@ -30,6 +30,7 @@
             <h3>{{ l.lesson }} - {{ l.topic }}</h3>
             <p>{{ l.desc }}</p>
             <iframe src="https://www.youtube.com/embed/{{ l.youtube.split('v=')[1] }}" width="600" height="400" allowfullscreen></iframe>
+            <a class="delete-btn-lesson" href="/dersler/delete/{{l.id}}">Sil</a>
             </div>
         {% endfor %}
         

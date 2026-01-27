@@ -1,0 +1,17 @@
+{
+    "exam_name": "Canlıların Ortak Özellikleri",
+    "exam_description": "Bu sınav ile sınava çalış.",
+    "lesson_name": "Biyoloji",
+    "exam_data": [
+        {
+            "question": "Hangisi canlıların ortak özelliklerinden değildir?",
+            "options": [
+                "Boşaltım",
+                "Adaptasyon",
+                "Konuşma",
+                "Protoin Sentezi"
+            ],
+            "correct": 2
+        }
+    ]
+}

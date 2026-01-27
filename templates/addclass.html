@@ -27,21 +27,11 @@
         {% endif %}
 
             <div class="card">
-            <form action="/ogrenciler/add" method="post">
-                <label for="name">Ad:</label>
+            <form action="/ogrenciler/addclass" method="post">
+                <label for="name">Sınıf Adı:</label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="number">Numara:</label>
-                <input type="text" id="number" name="number" required>
-
-                <label for="class_id">Sınıf:</label>
-                <select id="class_id" name="class_id">
-                    {% for cls in classes %}
-                        <option value="{{ cls.id }}">{{ cls.name }}</option>
-                    {% endfor %}
-                </select>
-
-                <button type="submit">Öğrenci Ekle</button>
+                <button type="submit">Sınıf Ekle</button>
             </form>
 
             </div>

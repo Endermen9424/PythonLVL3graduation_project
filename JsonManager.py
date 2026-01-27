@@ -18,7 +18,7 @@ class Testmanager:
         return self.tests
 
     
-    def create_test(self, exam_name, exam_description, lesson_name, exam_data:dict):
+    def create_test(self, exam_name, exam_description, lesson_name, exam_data:dict=[]):
         
         with open(os.path.join(self.folder_path, f"{exam_name}.json"), "w", encoding="utf-8") as file:
             data = {
@@ -47,6 +47,20 @@ class Testmanager:
             #    }
 
             json.dump(data, file, ensure_ascii=False, indent=4)
+            return True
+        
+    def edit_test(self, filename, new_data:dict):
+        file_path = os.path.join(self.folder_path, filename)
+        try:
+            with open(file_path, "r", encoding="utf-8") as file:
+                data = json.load(file)
+            data.update(new_data)
+            with open(file_path, "w", encoding="utf-8") as file:
+                json.dump(data, file, ensure_ascii=False, indent=4)
+            return True
+        except FileNotFoundError:
+            print(f"{filename} bulunamadı.")
+            return False
 
     def delete_test(self, filename):
         file_path = os.path.join(self.folder_path, filename)
@@ -68,3 +82,16 @@ class Testmanager:
         except json.JSONDecodeError:
             print(f"JSON okunamadı: {file_path}")
             return None
+        
+    def get_results(self, students_answer, exam_name):
+        data = self.get_test_data(f"{exam_name}.json")
+        if data and "exam_data" in data:
+            exam_questions = data["exam_data"]
+            correct_answers = [q["correct"] for q in exam_questions]
+            score = sum(1 for i, answer in enumerate(students_answer) if answer == correct_answers[i])
+            return {
+                "score": score,
+                "total_questions": len(exam_questions),
+                "percentage": (score / len(exam_questions) * 100) if exam_questions else 0
+            }
+        return None
