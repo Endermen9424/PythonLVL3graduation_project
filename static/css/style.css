@@ -84,6 +84,10 @@ html, body {
     margin-bottom:20px;
 }
 
+li {
+    margin-bottom:7px;
+}
+
 li a {
     text-decoration:none;
     color:inherit;
@@ -93,4 +97,104 @@ li a {
 .sidebar li.active{
     background:#1f2329;
     color:#fff;
+}
+
+.topbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #4CAF50;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.error-message {
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #007BFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.data-table {
+    width: 100%;
+    
+}
+
+.table-header {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.table-header th {
+    background-color: #f2f2f2;
+    border-radius: 10%;
+    padding: 5px;
+}
+
+.table-value {
+    border: 1px solid #ddd;
+    padding: 8px;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.table-value td {
+    vertical-align: top;
+    padding-top : 8px;
+    padding-bottom: 8px;
+}
+
+.delete-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.delete-btn-lesson {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+    width: fit-content;
 }

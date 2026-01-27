@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<div class="container">
+{% block content %}
+    <aside class="sidebar">
+        <h2>ElaAdmin</h2>
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li ><a href="/ogrenciler">Öğrenciler</a></li>
+            <li><a href="/dersler">Dersler</a></li>
+            <liclass="active"><a href="/sinavlar">Sınavlar</a></li>
+        </ul>
+    </aside>
+
+    
+    <main class="main">
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+            <div class="card">
+            <form action="/sinavlar/add" method="post">
+                <label for="name">Sınav Adı:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="description">Açıklama:</label>
+                <input type="text" id="description" name="description" required>
+
+                <label for="lessons_name">Ders:</label>
+                <input type="text", id="lessons_name" name="lessons_name" required>
+
+                <button type="submit">Sınav Ekle</button>
+        
+
+    </main>
+
+</div>
+{% endblock %}
+</body>
+</html>

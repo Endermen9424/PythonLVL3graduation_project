@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+ {% block content %}
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>ElaAdmin</h2>
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li><a href="/ogrenciler">Öğrenciler</a></li>
+            <li><a href="/dersler">Dersler</a></li>
+            <li class="active"><a href="/sinavlar">Sınavlar</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <div class="topbar">
+            <h1>Sınav Yönetimi</h1>
+        </div>
+        <div class="topbar">
+            <a href="/sinavlar/add" class="btn">Yeni Sınav Ekle</a>
+        </div>
+        {% if tests_data %}
+    
+
+            <div class="card">
+                <table class="data-table">
+                    <thead>
+                        <tr class="table-header">
+                            <th>Ad</th>
+                            <th>Açıklama</th>
+                            <th>Ders</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for exam in tests_data %}
+                        <tr class="table-value">
+                            <td>{{ exam["exam_name"] }}</td>
+                            <td>{{ exam["exam_description"] }}</td>
+                            <td>{{ exam["lesson_name"] }}</td>
+                            <td>
+                                <a href="/sinavlar/edit/{{ exam["exam_name"] }}" class="btn">Düzenle</a> |
+                                <a href="/sinavlar/delete/{{ exam["exam_name"] }}" class="delete-btn">Sil</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>Henüz eklenmiş bir sınav yok.</p>
+        {% endif %}
+        
+    </main>
+
+</div>
+{% endblock %}
+</body>
+</html>

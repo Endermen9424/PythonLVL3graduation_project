@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<div class="container">
+{% block content %}
+    <aside class="sidebar">
+        <h2>ElaAdmin</h2>
+        <ul>
+            <li><a href="/">Anasayfa</a></li>
+            <li>Öğrenciler</a></li>
+            <li class="active"><a href="/ogrenciler"><a href="/dersler">Dersler</a></li>
+            <li><a href="/sinavlar">Sınavlar</a></li>
+        </ul>
+    </aside>
+
+    
+    <main class="main">
+
+            <div class="card">
+            <form action="/dersler/add" method="post">
+                <label for="lesson_name">Ders Adı:</label>
+                <input type="text" id="lesson_name" name="lesson_name" required>
+
+                <label for="topic_name">Konu Adı:</label>
+                <input type="text" id="topic_name" name="topic_name" required>
+
+                <label for="description">Açıklama:</label>
+                <textarea id="description" name="description"></textarea>
+
+                <label for="youtube_url">YouTube URL:</label>
+                <input type="text" id="youtube_url" name="youtube_url">
+
+                <label for="class_id">Sınıf:</label>
+                <select id="class_id" name="class_id">
+                    {% for cls in classes %}
+                        <option value="{{ cls.id }}">{{ cls.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Ders Ekle</button>
+            </form>
+
+            </div>
+        
+
+    </main>
+
+</div>
+{% endblock %}
+</body>
+</html>

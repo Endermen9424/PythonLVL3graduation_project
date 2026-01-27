@@ -78,11 +78,15 @@ class DBManager:
 
     # ---------- CLASSES ----------
     def add_class(self, name):
-        self.cursor.execute(
-            "INSERT INTO classes VALUES (NULL, ?)",
-            (name,)
-        )
-        self.conn.commit()
+        if name in [cls[1] for cls in self.get_all_classes()]:
+            return False  # Sınıf zaten var
+        else:
+            self.cursor.execute(
+                "INSERT INTO classes VALUES (NULL, ?)",
+                (name,)
+            )
+            self.conn.commit()
+            return True
 
     def get_all_classes(self):
         self.cursor.execute("SELECT * FROM classes")
@@ -90,9 +94,30 @@ class DBManager:
 
     # ---------- STUDENTS ----------
     def add_student(self, name, school_no, class_id):
+        try:
+            #Aynı numaraya ait bir öğrenci olup olmadığını kontrol et
+            self.cursor.execute(
+                "SELECT * FROM students WHERE school_no=?",
+                (school_no,)
+            )
+            if self.cursor.fetchone():
+                raise ValueError("Bu numaraya ait bir öğrenci zaten var.")
+            else:
+                self.cursor.execute(
+                    "INSERT INTO students VALUES (NULL, ?, ?, ?, 0)",
+                    (name, school_no, class_id)
+                )
+                self.conn.commit()
+            
+            return True
+        except ValueError as ve:
+            print(ve)
+            return False
+
+    def delete_student(self, student_id):
         self.cursor.execute(
-            "INSERT INTO students VALUES (NULL, ?, ?, ?, 0)",
-            (name, school_no, class_id)
+            "DELETE FROM students WHERE id=?",
+            (student_id,)
         )
         self.conn.commit()
 
