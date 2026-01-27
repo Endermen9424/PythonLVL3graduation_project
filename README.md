@@ -1,4 +1,4 @@
-# 📚 ElaAdmin - Eğitim Yönetim Sistemi
+# 📚 MindClass - Eğitim Yönetim Sistemi
 
 ## 📖 Proje Açıklaması
 
@@ -232,22 +232,6 @@ PythonLVL3graduation_project/
 
 ## 📝 Notlar
 
-ElaAdmin, eğitim kurumlarında sınıf yönetimini ve öğrenme sürecini kolaylaştırmak amacıyla geliştirilmiştir. Sistem, öğretmen ve öğrenciler arasında etkileşimi arttırarak, eğitim kalitesini yükseltmek hedeflemektedir.
+MindClass, eğitim kurumlarında sınıf yönetimini ve öğrenme sürecini kolaylaştırmak amacıyla geliştirilmiştir. Sistem, öğretmen ve öğrenciler arasında etkileşimi arttırarak, eğitim kalitesini yükseltmek hedeflemektedir.
 
-> **"Eğitim, geleceğin temelini oluşturur. ElaAdmin ile daha iyi bir öğrenme ortamı yaratın."**
-
----
-
-## 📞 İletişim ve Destek
-
-Herhangi bir soru veya sorun için lütfen iletişime geçiniz.
-
----
-
-## 📄 Lisans
-
-Bu proje MIT Lisansı altında yayımlanmıştır. Detaylar için LICENSE dosyasına bakınız.
-
----
-
-**ElaAdmin © 2026 - Tüm hakları saklıdır.**
+> **"Eğitim, geleceğin temelini oluşturur. MindClass ile daha iyi bir öğrenme ortamı yaratın."**
